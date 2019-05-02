@@ -11,8 +11,9 @@ import org.springframework.messaging.handler.annotation.support.MessageHandlerMe
 @Configuration
 public class RabbitConfig implements RabbitListenerConfigurer
 {
-   
-   public static final String QUEUE_ORDERS = "orders-queue";
+
+   public static final String QUEUE_ORDERS_PRIORITY    = "orders-queue-priority";
+   public static final String QUEUE_ORDERS_NONPRIORITY = "orders-queue-nonpriority";
 
    @Override
    public void configureRabbitListeners( RabbitListenerEndpointRegistrar registrar )

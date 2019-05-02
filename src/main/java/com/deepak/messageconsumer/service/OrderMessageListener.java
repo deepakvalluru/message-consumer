@@ -13,10 +13,16 @@ public class OrderMessageListener
 {
    static final Logger logger = LoggerFactory.getLogger( OrderMessageListener.class );
 
-   @RabbitListener ( queues = RabbitConfig.QUEUE_ORDERS )
-   public void processOrder( Order order )
+   @RabbitListener ( queues = RabbitConfig.QUEUE_ORDERS_PRIORITY )
+   public void processPriorityOrder( Order order )
    {
-      logger.debug( "Order received : " + order );
+      logger.debug( "Priority Order received : {}", order );
+   }
+
+   @RabbitListener ( queues = RabbitConfig.QUEUE_ORDERS_NONPRIORITY )
+   public void processNonPriorityOrder( Order order )
+   {
+      logger.debug( "Non-prioirty Order received : {}", order );
    }
 
 }
